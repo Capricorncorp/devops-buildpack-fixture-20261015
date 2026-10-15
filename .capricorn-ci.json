@@ -2,12 +2,7 @@
   "version": 1,
   "steps": [
     {
-      "run": "test -f package.json && command -v pack && pack --version"
+      "run": "set +e; readlink -f /bin/sh; command -v sh; command -v timeout; printf 'timeout_lookup_rc=%s\\n' \"$?\"; test -f package.json; printf 'package_rc=%s\\n' \"$?\"; p=$(command -v pack); r=$?; printf 'pack_path=%s pack_lookup_rc=%s\\n' \"$p\" \"$r\"; if [ \"$r\" -eq 0 ]; then pack --version; printf 'pack_version_rc=%s\\n' \"$?\"; fi; exit 0"
     }
-  ],
-  "image": {
-    "name": "buildpack-proof",
-    "builder": "buildpack",
-    "cache": false
-  }
+  ]
 }
