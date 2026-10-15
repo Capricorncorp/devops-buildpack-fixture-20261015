@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "run": "test -f package.json && command -v pack && pack --version"
+    }
+  ],
+  "image": {
+    "name": "buildpack-proof",
+    "builder": "buildpack",
+    "cache": false
+  }
+}
